@@ -1,27 +1,29 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {SecureInnerPagesGuard} from "./shared/auth/secure-inner-pages.guard";
-import {AuthGuard} from "./shared/auth/auth.guard";
-import {UserProfileComponent} from "./components/user-profile/user-profile.component";
-import {SignInComponent} from "./components/sign-in/sign-in.component";
-import {HomeComponent} from "./components/home/home.component";
-import {RegisterSuccessComponent} from "./components/sign-in/register-success/register-success.component";
-import {ForgotPasswordComponent} from "./components/sign-in/forgot-password/forgot-password.component";
-import {QuizComponent} from "./components/quiz/quiz.component";
-import {ResultComponent} from "./components/result/result.component";
-import {QuizCreatorComponent} from "./components/quiz-creator/quiz-creator.component";
-import {CategoryComponent} from "./components/category/category.component";
-import {UserComponent} from "./components/user/user.component";
+import { SecureInnerPagesGuard } from './shared/auth/secure-inner-pages.guard';
+import { AuthGuard } from './shared/auth/auth.guard';
+import { UserProfileComponent } from './components/user-profile/user-profile.component';
+import { SignInComponent } from './components/sign-in/sign-in.component';
+import { HomeComponent } from './components/home/home.component';
+import { RegisterSuccessComponent } from './components/sign-in/register-success/register-success.component';
+import { ForgotPasswordComponent } from './components/sign-in/forgot-password/forgot-password.component';
+import { QuizComponent } from './components/quiz/quiz.component';
+import { ResultComponent } from './components/result/result.component';
+import { QuizCreatorComponent } from './components/quiz-creator/quiz-creator.component';
+import { CategoryComponent } from './components/category/category.component';
+import { UserComponent } from './components/user/user.component';
+import { QuizCreationNoAuthComponent } from './quiz-creation-no-auth/quiz-creation-no-auth.component';
 
 const routes: Routes = [
   {
     path: '',
     component: HomeComponent,
-    pathMatch: 'full'
+    pathMatch: 'full',
   },
-  { path: 'account',
+  {
+    path: 'account',
     component: UserProfileComponent,
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard],
   },
   {
     path: 'sign-in',
@@ -35,42 +37,46 @@ const routes: Routes = [
   },
   {
     path: 'sign-in/register-complete',
-    component: RegisterSuccessComponent
+    component: RegisterSuccessComponent,
   },
   {
     path: 'quiz',
-    component: QuizComponent
+    component: QuizComponent,
   },
   {
     path: 'quiz/:id',
-    component: QuizComponent
+    component: QuizComponent,
   },
   {
     path: 'result',
-    component: ResultComponent
+    component: ResultComponent,
   },
   {
     path: 'create',
     component: QuizCreatorComponent,
-    canActivate: [AuthGuard]
+    //canActivate: [AuthGuard]
   },
   {
     path: 'edit/:id',
     component: QuizCreatorComponent,
-    canActivate: [AuthGuard]
+    //canActivate: [AuthGuard]
   },
   {
     path: 'category/:id',
-    component: CategoryComponent
+    component: CategoryComponent,
   },
   {
     path: 'user/:id',
-    component: UserComponent
+    component: UserComponent,
   },
-  { path: '**', redirectTo: '' }
+  {
+    path: 'create-quiz-no-auth',
+    component: QuizCreationNoAuthComponent,
+  },
+  { path: '**', redirectTo: '' },
 ];
 @NgModule({
-  imports: [RouterModule.forRoot(routes,  { useHash: true })],
-  exports: [RouterModule]
+  imports: [RouterModule.forRoot(routes, { useHash: true })],
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

@@ -42,6 +42,7 @@ import {MatDialogModule} from "@angular/material/dialog";
 import {AvatarDialogComponent} from "./components/user-profile/AvatarDialog.component";
 import { FooterComponent } from './components/footer/footer.component';
 import { UserComponent } from './components/user/user.component';
+import { QuizCreationNoAuthComponent } from './quiz-creation-no-auth/quiz-creation-no-auth.component';
 
 
 @NgModule({
@@ -62,7 +63,8 @@ import { UserComponent } from './components/user/user.component';
          CategoryComponent,
       AvatarDialogComponent,
       FooterComponent,
-      UserComponent
+      UserComponent,
+      QuizCreationNoAuthComponent
     ],
   imports: [
     BrowserModule,
